@@ -13,9 +13,9 @@ export const addMessageToStore = (state, payload) => {
 
   return state.map((convo) => {
     if (convo.id === message.conversationId) {
-      convo.messages.push(message);
-      convo.latestMessageText = message.text;
-      return convo;
+      const messages = [...convo.messages, message]
+      const latestMessageText = message.text;
+      return {...convo, messages, latestMessageText };
     } else {
       return convo;
     }
