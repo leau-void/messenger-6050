@@ -7,7 +7,7 @@ export const theme = createMuiTheme({
     button: {
       textTransform: "none",
       letterSpacing: 0,
-      fontWeight: "bold"
+      fontWeight: "bold",
     }
   },
   overrides: {
