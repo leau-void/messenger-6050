@@ -67,12 +67,21 @@ export const addConversation = (recipientId, newMessage) => {
   };
 };
 
+// HELPERS
+
+const sortMessages = (conversation) => (
+    {...conversation, 
+      messages: conversation.messages.sort((a,b) => Date.parse(a.createdAt) - Date.parse(b.createdAt))
+    }
+  )
+
 // REDUCER
 
 const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_CONVERSATIONS:
-      return action.conversations;
+      
+      return action.conversations.map((conversation) => sortMessages(conversation));
     case SET_MESSAGE:
       return addMessageToStore(state, action.payload);
     case ADD_ONLINE_USER: {
