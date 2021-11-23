@@ -6,6 +6,8 @@ import Sidebar from "./Sidebar";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    display: "grid",
+    grid: "1fr / 2fr 3fr"
   },
   button: {
     fontFamily: "Montserrat, Open Sans, sans-serif",
@@ -16,7 +18,7 @@ const AuthenticationPage = (props) => {
   const classes = useStyles();
   const { children } = props;
   return (
-    <Grid container>
+    <Grid container className={classes.root}>
       <Sidebar />
       {Array.isArray(children) ? children.map((child) => child) : children}
     </Grid>
