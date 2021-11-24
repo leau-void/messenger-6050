@@ -4,12 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "80%",
+    width: "60%",
   },
   container: {
-    paddingTop: "3rem",
-    "& > h2": {
-      color: "red"
+    paddingTop: "5rem",
+    flexDirection: "column",
+    gap: "1rem",
+    "& h1": {
+      fontSize: "26px",
+      fontWeight: "bold",
+      width: "100%",
+      alignSelf: "left",
     }
   },
   button: {

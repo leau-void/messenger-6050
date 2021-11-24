@@ -3,18 +3,16 @@ import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Grid,
-  Box,
   Typography,
-  Button,
   FormControl,
-  TextField,
 } from "@material-ui/core";
 import { login } from "./store/utils/thunkCreators";
 import { 
   AuthenticationPage,
   AuthenticationButton,
   AuthenticationForm,
-  AuthenticationTopBar
+  AuthenticationTopBar,
+  AuthenticationTextField
 } from "./components/AuthenticationPage";
 
 const Login = (props) => {
@@ -41,32 +39,26 @@ const Login = (props) => {
             <AuthenticationButton onClick={() => history.push("/register")}>Register</AuthenticationButton>
           </AuthenticationTopBar>
           <AuthenticationForm onSubmit={handleLogin}>
-            <Grid>
               <Typography component="h1">Welcome back!</Typography>
-              <Grid>
                 <FormControl margin="normal" required>
-                  <TextField
+                  <AuthenticationTextField
                     aria-label="username"
                     label="Username"
                     name="username"
                     type="text"
                   />
                 </FormControl>
-              </Grid>
               <FormControl margin="normal" required>
-                <TextField
+                <AuthenticationTextField
                   label="Password"
                   aria-label="password"
                   type="password"
                   name="password"
                 />
               </FormControl>
-              <Grid>
                 <AuthenticationButton main type="submit" variant="contained" size="large">
                   Login
                 </AuthenticationButton>
-              </Grid>
-            </Grid>
           </AuthenticationForm>
       </Grid>
     </AuthenticationPage>

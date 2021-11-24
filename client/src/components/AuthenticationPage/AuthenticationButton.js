@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     height: "56px",
     fontSize: "16px",
     fontFamily: "Montserrat, Open Sans, sans-serif",
+    alignSelf: "center",
   },
   main: {
     background: "#3A8DFF",
