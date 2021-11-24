@@ -7,11 +7,11 @@ import {
 } from "@material-ui/core";
 import { 
   AuthenticationPage,
-  AuthenticationButton,
-  AuthenticationForm,
-  AuthenticationTopBar,
-  AuthenticationTextField,
-  AuthenticationContent
+  Button,
+  Form,
+  TopBar,
+  TextField,
+  Content
 } from "./components/AuthenticationPage";
 import { login } from "./store/utils/thunkCreators";
 
@@ -33,15 +33,15 @@ const Login = (props) => {
 
   return (
     <AuthenticationPage>
-      <AuthenticationContent>
-          <AuthenticationTopBar item>
+      <Content>
+          <TopBar item>
             <Typography>Need to register?</Typography>
-            <AuthenticationButton onClick={() => history.push("/register")}>Register</AuthenticationButton>
-          </AuthenticationTopBar>
-          <AuthenticationForm onSubmit={handleLogin}>
+            <Button onClick={() => history.push("/register")}>Register</Button>
+          </TopBar>
+          <Form onSubmit={handleLogin}>
               <Typography component="h1">Welcome back!</Typography>
                 <FormControl margin="normal" required>
-                  <AuthenticationTextField
+                  <TextField
                     aria-label="username"
                     label="Username"
                     name="username"
@@ -49,18 +49,18 @@ const Login = (props) => {
                   />
                 </FormControl>
               <FormControl margin="normal" required>
-                <AuthenticationTextField
+                <TextField
                   label="Password"
                   aria-label="password"
                   type="password"
                   name="password"
                 />
               </FormControl>
-                <AuthenticationButton main type="submit" variant="contained" size="large">
+                <Button main type="submit" variant="contained" size="large">
                   Login
-                </AuthenticationButton>
-          </AuthenticationForm>
-      </AuthenticationContent>
+                </Button>
+          </Form>
+      </Content>
     </AuthenticationPage>
   );
 };

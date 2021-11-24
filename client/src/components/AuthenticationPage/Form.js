@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AuthenticationForm = (props) => {
+const Form = (props) => {
   const classes = useStyles();
   const { children, onSubmit } = props;
   return (
@@ -37,4 +37,4 @@ const AuthenticationForm = (props) => {
   );
 };
 
-export default AuthenticationForm;
+export default Form;

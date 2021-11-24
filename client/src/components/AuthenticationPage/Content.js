@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AuthenticationContent = (props) => {
+const Content = (props) => {
   const classes = useStyles();
   const { children } = props;
   return (
@@ -21,4 +21,4 @@ const AuthenticationContent = (props) => {
   );
 };
 
-export default AuthenticationContent;
+export default Content;

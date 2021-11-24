@@ -1,6 +1,6 @@
 export { default as AuthenticationPage } from "./AuthenticationPage";
-export { default as AuthenticationButton } from "./AuthenticationButton";
-export { default as AuthenticationForm } from "./AuthenticationForm";
-export { default as AuthenticationTopBar } from "./AuthenticationTopBar";
-export { default as AuthenticationTextField } from "./AuthenticationTextField";
-export { default as AuthenticationContent } from "./AuthenticationContent";
+export { default as Button } from "./Button";
+export { default as Form } from "./Form";
+export { default as TopBar } from "./TopBar";
+export { default as TextField } from "./TextField";
+export { default as Content } from "./Content";

@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const AuthenticationTopBar = (props) => {
+const TopBar = (props) => {
   const classes = useStyles();
   const { children, text, ...restProps } = props;
   return (
@@ -39,4 +39,4 @@ const AuthenticationTopBar = (props) => {
   );
 };
 
-export default AuthenticationTopBar;
+export default TopBar;

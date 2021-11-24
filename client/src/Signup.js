@@ -8,11 +8,11 @@ import {
 } from "@material-ui/core";
 import { 
   AuthenticationPage,
-  AuthenticationButton,
-  AuthenticationForm,
-  AuthenticationTopBar,
-  AuthenticationTextField,
-  AuthenticationContent
+  Button,
+  Form,
+  TopBar,
+  TextField,
+  Content
 } from "./components/AuthenticationPage";
 import { register } from "./store/utils/thunkCreators";
 
@@ -42,15 +42,15 @@ const Login = (props) => {
 
   return (
     <AuthenticationPage>
-      <AuthenticationContent>
-        <AuthenticationTopBar container item>
+      <Content>
+        <TopBar container item>
           <Typography>Need to log in?</Typography>
-          <AuthenticationButton onClick={() => history.push("/login")}>Login</AuthenticationButton>
-        </AuthenticationTopBar>
-        <AuthenticationForm onSubmit={handleRegister}>
+          <Button onClick={() => history.push("/login")}>Login</Button>
+        </TopBar>
+        <Form onSubmit={handleRegister}>
             <Typography component="h1">Create an account.</Typography>
               <FormControl>
-                <AuthenticationTextField
+                <TextField
                   aria-label="username"
                   label="Username"
                   name="username"
@@ -59,7 +59,7 @@ const Login = (props) => {
                 />
               </FormControl>
               <FormControl>
-                <AuthenticationTextField
+                <TextField
                   label="E-mail address"
                   aria-label="e-mail address"
                   type="email"
@@ -68,7 +68,7 @@ const Login = (props) => {
                 />
               </FormControl>
               <FormControl error={!!formErrorMessage.confirmPassword}>
-                <AuthenticationTextField
+                <TextField
                   aria-label="password"
                   label="Password"
                   type="password"
@@ -81,7 +81,7 @@ const Login = (props) => {
                 </FormHelperText>
               </FormControl>
               <FormControl error={!!formErrorMessage.confirmPassword}>
-                <AuthenticationTextField
+                <TextField
                   label="Confirm Password"
                   aria-label="confirm password"
                   type="password"
@@ -93,11 +93,11 @@ const Login = (props) => {
                   {formErrorMessage.confirmPassword}
                 </FormHelperText>
               </FormControl>
-            <AuthenticationButton main type="submit" variant="contained" size="large">
+            <Button main type="submit" variant="contained" size="large">
               Create
-            </AuthenticationButton>
-        </AuthenticationForm>
-      </AuthenticationContent>
+            </Button>
+        </Form>
+      </Content>
     </AuthenticationPage>
   );
 };
