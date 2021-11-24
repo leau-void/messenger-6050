@@ -6,7 +6,6 @@ import {
   Typography,
   FormControl,
 } from "@material-ui/core";
-import { login } from "./store/utils/thunkCreators";
 import { 
   AuthenticationPage,
   AuthenticationButton,
@@ -14,6 +13,7 @@ import {
   AuthenticationTopBar,
   AuthenticationTextField
 } from "./components/AuthenticationPage";
+import { login } from "./store/utils/thunkCreators";
 
 const Login = (props) => {
   const history = useHistory();

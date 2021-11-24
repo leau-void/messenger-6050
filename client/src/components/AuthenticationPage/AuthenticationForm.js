@@ -5,9 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "60%",
+    marginTop: "4rem",
   },
   container: {
-    paddingTop: "5rem",
     flexDirection: "column",
     gap: "1rem",
     "& h1": {

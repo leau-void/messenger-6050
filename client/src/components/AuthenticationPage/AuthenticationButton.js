@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     width: "160px",
     height: "56px",
     fontSize: "16px",
-    fontFamily: "Montserrat, Open Sans, sans-serif",
     alignSelf: "center",
   },
   main: {

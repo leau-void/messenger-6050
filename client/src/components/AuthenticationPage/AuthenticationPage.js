@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     grid: "1fr / 2fr 3fr"
   },
+  content: {
+    height: "100%",
+    width: "100%"
+  },
   button: {
     fontFamily: "Montserrat, Open Sans, sans-serif",
   },
@@ -20,7 +24,7 @@ const AuthenticationPage = (props) => {
   return (
     <Grid container className={classes.root}>
       <Sidebar />
-      <Box>
+      <Box className={classes.content}>
         {Array.isArray(children) ? children.map((child) => child) : children}
       </Box>
     </Grid>
