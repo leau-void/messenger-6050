@@ -7,7 +7,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
     display: "grid",
-    grid: "1fr / 2fr 3fr"
+    grid: "1fr / 2fr 3fr",
+    "@media (max-width: 475px)": {
+      grid: "1fr auto /1fr",
+      height: "fit-content",
+      flexWrap: "no-wrap"
+    }
   },
   content: {
     height: "100%",

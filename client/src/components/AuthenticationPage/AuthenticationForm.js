@@ -5,7 +5,10 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "60%",
-    marginBottom: "auto"
+    marginBottom: "auto",
+    "@media (max-width: 475px)": {
+      width: "80%"
+    }
   },
   container: {
     flexDirection: "column",
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "26px",
       fontWeight: "bold",
       width: "100%",
-      alignSelf: "left",
+      alignSelf: "left"
     }
   },
   button: {

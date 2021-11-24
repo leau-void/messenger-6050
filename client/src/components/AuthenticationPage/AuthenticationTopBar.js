@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -10,10 +10,22 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem 3rem",
     fontSize: "14px",
     alignItems: "center",
-    alignContent: "space-around",
     gap: "3rem",
     color: "#B0B0B0",
-    marginBottom: "auto"
+    marginBottom: "auto",
+    textAlign: "center",
+
+    "@media (max-width: 768px)": {
+      flexDirection: "column",
+      gap: "1.5rem"
+    },
+
+    "@media (max-width: 475px)": {
+      flexDirection: "row",
+      gap: "1rem",
+      padding: "2rem 1.5rem",
+      alignSelf: "center"
+    }
   }
 }));
 
