@@ -30,7 +30,7 @@ const AuthenticationPage = (props) => {
     <Grid container className={classes.root}>
       <Sidebar />
       <Box className={classes.content}>
-        {Array.isArray(children) ? children.map((child) => child) : children}
+        {children}
       </Box>
     </Grid>
   );

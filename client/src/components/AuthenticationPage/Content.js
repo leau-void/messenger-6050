@@ -16,7 +16,7 @@ const Content = (props) => {
   const { children } = props;
   return (
     <Grid container className={classes.root} >
-      {Array.isArray(children) ? children.map((child) => child) : children}
+      {children.map((child) => child)}
     </Grid>
   );
 };

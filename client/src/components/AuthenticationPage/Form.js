@@ -31,7 +31,7 @@ const Form = (props) => {
   return (
     <form onSubmit={onSubmit} className={classes.root}>
       <Grid container className={classes.container} >
-        {Array.isArray(children) ? children.map((child) => child) : children}
+        {children.map((child) => child)}
       </Grid>
     </form>
   );

@@ -34,7 +34,7 @@ const TopBar = (props) => {
   const { children, text, ...restProps } = props;
   return (
     <Grid container {...restProps} className={classes.root} >
-      {Array.isArray(children) ? children.map((child) => child) : children}
+      {children.map((child) => child)}
     </Grid>
   );
 };
