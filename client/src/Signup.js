@@ -45,6 +45,7 @@ const Login = (props) => {
         </Grid>
         <form onSubmit={handleRegister}>
           <Grid>
+            <Typography component="h1">Create an account.</Typography>
             <Grid>
               <FormControl>
                 <TextField

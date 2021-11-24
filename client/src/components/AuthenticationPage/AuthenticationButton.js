@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   main: {
     background: "#3A8DFF",
     color: "white",
+    margin: "2rem 1rem",
     "&:hover": {
       color: "#3A8DFF"
     }
@@ -26,7 +27,11 @@ const AuthenticationButton = (props) => {
   const { children, main, ...restProps } = props
   
   // use of Object destructuring and rest syntax to assure flexibility
-  return <Button className={`${classes.root} ${main ? classes.main : classes.secondary}`} {...restProps}>{children}</Button>
+  return (
+    <Button className={`${classes.root} ${main ? classes.main : classes.secondary}`} {...restProps}>
+      {children}
+    </Button>
+  )
 }
 
 export default AuthenticationButton

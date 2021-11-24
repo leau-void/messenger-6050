@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Sidebar from "./Sidebar";
 
@@ -20,7 +20,9 @@ const AuthenticationPage = (props) => {
   return (
     <Grid container className={classes.root}>
       <Sidebar />
-      {Array.isArray(children) ? children.map((child) => child) : children}
+      <Box>
+        {Array.isArray(children) ? children.map((child) => child) : children}
+      </Box>
     </Grid>
   );
 };
