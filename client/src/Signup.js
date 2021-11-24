@@ -3,11 +3,8 @@ import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Grid,
-  Box,
   Typography,
-  Button,
   FormControl,
-  TextField,
   FormHelperText,
 } from "@material-ui/core";
 import { 
@@ -15,7 +12,8 @@ import {
   AuthenticationButton,
   AuthenticationForm,
   AuthenticationTopBar,
-  AuthenticationTextField
+  AuthenticationTextField,
+  AuthenticationContent
 } from "./components/AuthenticationPage";
 import { register } from "./store/utils/thunkCreators";
 
@@ -45,7 +43,7 @@ const Login = (props) => {
 
   return (
     <AuthenticationPage>
-      <Grid container justify="center">
+      <AuthenticationContent>
         <AuthenticationTopBar container item>
           <Typography>Need to log in?</Typography>
           <AuthenticationButton onClick={() => history.push("/login")}>Login</AuthenticationButton>
@@ -100,7 +98,7 @@ const Login = (props) => {
               Create
             </AuthenticationButton>
         </AuthenticationForm>
-      </Grid>
+      </AuthenticationContent>
     </AuthenticationPage>
   );
 };

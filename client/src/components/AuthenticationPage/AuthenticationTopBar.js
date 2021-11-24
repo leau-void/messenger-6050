@@ -4,13 +4,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    justifyContent: "flex-end",
+    width: "fit-content",
+    alignSelf: "end",
+    justifyContent: "center",
     padding: "2rem 3rem",
     fontSize: "14px",
     alignItems: "center",
+    alignContent: "space-around",
     gap: "3rem",
-    color: "#B0B0B0"
-  },
+    color: "#B0B0B0",
+    marginBottom: "auto"
+  }
 }));
 
 const AuthenticationTopBar = (props) => {

@@ -11,7 +11,8 @@ import {
   AuthenticationButton,
   AuthenticationForm,
   AuthenticationTopBar,
-  AuthenticationTextField
+  AuthenticationTextField,
+  AuthenticationContent
 } from "./components/AuthenticationPage";
 import { login } from "./store/utils/thunkCreators";
 
@@ -33,7 +34,7 @@ const Login = (props) => {
 
   return (
     <AuthenticationPage>
-      <Grid container justify="center">
+      <AuthenticationContent>
           <AuthenticationTopBar item>
             <Typography>Need to register?</Typography>
             <AuthenticationButton onClick={() => history.push("/register")}>Register</AuthenticationButton>
@@ -60,7 +61,7 @@ const Login = (props) => {
                   Login
                 </AuthenticationButton>
           </AuthenticationForm>
-      </Grid>
+      </AuthenticationContent>
     </AuthenticationPage>
   );
 };
