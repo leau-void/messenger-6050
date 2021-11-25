@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { FormControl, FilledInput } from "@material-ui/core";
+import { FormControl, FilledInput, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import { postMessage } from "../../store/utils/thunkCreators";
+import { ImageInput } from ".";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -20,6 +21,7 @@ const useStyles = makeStyles(() => ({
 const Input = (props) => {
   const classes = useStyles();
   const [text, setText] = useState("");
+  const [images, setImages] = useState([])
   const { postMessage, otherUser, conversationId, user } = props;
 
   const handleChange = (event) => {
@@ -41,6 +43,9 @@ const Input = (props) => {
 
   return (
     <form className={classes.root} onSubmit={handleSubmit}>
+      <Box>
+        <ImageInput images={images} setImages={setImages} />
+      </Box>
       <FormControl fullWidth hiddenLabel>
         <FilledInput
           classes={{ root: classes.input }}
