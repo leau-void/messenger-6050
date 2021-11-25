@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, IconButton } from "@material-ui/core";
+import { Grid, Box, IconButton } from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
+import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -43,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     '&::-webkit-scrollbar': {
       height: "15px"
     },
-
     '&::-webkit-scrollbar-thumb': {
       backgroundColor: theme.palette.secondary.main,
       borderRadius: 16,
@@ -51,9 +51,19 @@ const useStyles = makeStyles((theme) => ({
       backgroundClip: "padding-box"
     }
   },
+  imageWrap: {
+    position: "relative"
+  },
   image: {
     height: "100px",
-    borderRadius: 8
+    borderRadius: 8,
+  },
+  deleteButton: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    zIndex: 100,
+    transform: "translate(50%, -50%)"
   }
 }));
 
@@ -61,6 +71,8 @@ const ImageInput = (props) => {
   const classes = useStyles();
   const { images, setImages } = props;
   console.log(images)
+
+  const removeImage = (i) => setImages((prevImages) => [...prevImages.slice(0, i), ...prevImages.slice(i + 1)])
 
   return (
     <Grid container className={classes.root}>
@@ -82,7 +94,14 @@ const ImageInput = (props) => {
         </IconButton>
       </label>
       <Grid container className={classes.preview}>
-        {images.map((image) => <img className={classes.image} alt="Preview thumbnail" src={image.url} />)}
+        {images.map((image, i) => (
+                            <Box className={classes.imageWrap}>
+                              <img className={classes.image} alt="Preview thumbnail" src={image.url} />
+                              <IconButton onClick={() => removeImage(i)} size="small" className={classes.deleteButton}>
+                                <CancelRoundedIcon fontSize="10px" />
+                              </IconButton>
+                            </Box>
+                          ))}
       </Grid>
     </Grid>
   )
