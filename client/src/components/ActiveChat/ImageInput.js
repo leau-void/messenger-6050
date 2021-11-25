@@ -15,15 +15,15 @@ const useStyles = makeStyles((theme) => ({
   input: {
     opacity: 0,
     position: "fixed",
-    left: "-100vw"
+    left: "-100vw",
   },
   button: {
     margin: "0.5rem",
     marginBottom: 0,
 
     "&:hover": {
-      color: theme.palette.primary.main
-    }
+      color: theme.palette.primary.main,
+    },
   },
   preview: {
     height: "fit-content",
@@ -41,18 +41,18 @@ const useStyles = makeStyles((theme) => ({
     "&:empty": {
       display: "none",
     },
-    '&::-webkit-scrollbar': {
-      height: "15px"
+    "&::-webkit-scrollbar": {
+      height: "15px",
     },
-    '&::-webkit-scrollbar-thumb': {
+    "&::-webkit-scrollbar-thumb": {
       backgroundColor: theme.palette.secondary.main,
       borderRadius: 16,
       border: "5px solid transparent",
-      backgroundClip: "padding-box"
-    }
+      backgroundClip: "padding-box",
+    },
   },
   imageWrap: {
-    position: "relative"
+    position: "relative",
   },
   image: {
     height: "100px",
@@ -63,31 +63,40 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     right: 0,
     zIndex: 100,
-    transform: "translate(50%, -50%)"
-  }
+    transform: "translate(50%, -50%)",
+  },
 }));
 
 const ImageInput = (props) => {
   const classes = useStyles();
   const { images, setImages } = props;
-  console.log(images)
 
-  const removeImage = (i) => setImages((prevImages) => [...prevImages.slice(0, i), ...prevImages.slice(i + 1)])
+  const addImage = (e) => {
+    const input = e.currentTarget;
+    const newImages = [...input.files].map((file) => ({
+      file,
+      url: URL.createObjectURL(file),
+    }));
+    setImages((prevImages) => [...prevImages, ...newImages]);
+    input.value = "";
+  };
+
+  const removeImage = (i) =>
+    setImages((prevImages) => [
+      ...prevImages.slice(0, i),
+      ...prevImages.slice(i + 1),
+    ]);
 
   return (
     <Grid container className={classes.root}>
       <input
-        onChange={(e) => {
-          const newImages = [...e.currentTarget.files].map((file) => ({file, url: URL.createObjectURL(file)}))
-          setImages((prevImages) => [...prevImages, ...newImages])
-        }
-        }
+        onChange={addImage}
         id="image-input"
         type="file"
         accept="image/*"
         multiple
         className={classes.input}
-          />
+      />
       <label htmlFor="image-input">
         <IconButton component="span" className={classes.button}>
           <AddPhotoIcon fontSize="20px" />
@@ -95,16 +104,23 @@ const ImageInput = (props) => {
       </label>
       <Grid container className={classes.preview}>
         {images.map((image, i) => (
-                            <Box className={classes.imageWrap}>
-                              <img className={classes.image} alt="Preview thumbnail" src={image.url} />
-                              <IconButton onClick={() => removeImage(i)} size="small" className={classes.deleteButton}>
-                                <CancelRoundedIcon fontSize="10px" />
-                              </IconButton>
-                            </Box>
-                          ))}
+          <Box className={classes.imageWrap}>
+            <img
+              className={classes.image}
+              alt="Preview thumbnail"
+              src={image.url}
+            />
+            <IconButton
+              onClick={() => removeImage(i)}
+              size="small"
+              className={classes.deleteButton}>
+              <CancelRoundedIcon fontSize="10px" />
+            </IconButton>
+          </Box>
+        ))}
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default ImageInput
+export default ImageInput;
