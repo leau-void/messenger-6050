@@ -1,4 +1,5 @@
 import React from "react";
+import crypto from "crypto";
 import { Grid, Box, IconButton } from "@material-ui/core";
 import AddPhotoIcon from "@material-ui/icons/AddPhotoAlternate";
 import CancelRoundedIcon from "@material-ui/icons/CancelRounded";
@@ -70,22 +71,20 @@ const useStyles = makeStyles((theme) => ({
 const ImageInput = (props) => {
   const classes = useStyles();
   const { images, setImages } = props;
-
-  const addImage = (e) => {
-    const input = e.currentTarget;
+  console.log(images);
+  const addImage = (event) => {
+    const input = event.currentTarget;
     const newImages = [...input.files].map((file) => ({
       file,
       url: URL.createObjectURL(file),
+      id: crypto.randomBytes(16).toString("hex"),
     }));
     setImages((prevImages) => [...prevImages, ...newImages]);
     input.value = "";
   };
 
-  const removeImage = (i) =>
-    setImages((prevImages) => [
-      ...prevImages.slice(0, i),
-      ...prevImages.slice(i + 1),
-    ]);
+  const removeImage = (id) =>
+    setImages((prevImages) => prevImages.filter((image) => image.id !== id));
 
   return (
     <Grid container className={classes.root}>
@@ -103,18 +102,18 @@ const ImageInput = (props) => {
         </IconButton>
       </label>
       <Grid container className={classes.preview}>
-        {images.map((image, i) => (
-          <Box className={classes.imageWrap}>
+        {images.map((image, index) => (
+          <Box key={image.id} className={classes.imageWrap}>
             <img
               className={classes.image}
               alt="Preview thumbnail"
               src={image.url}
             />
             <IconButton
-              onClick={() => removeImage(i)}
+              onClick={() => removeImage(image.id)}
               size="small"
               className={classes.deleteButton}>
-              <CancelRoundedIcon fontSize="10px" />
+              <CancelRoundedIcon />
             </IconButton>
           </Box>
         ))}
