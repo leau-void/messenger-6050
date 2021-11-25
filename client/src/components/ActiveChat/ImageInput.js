@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
 const ImageInput = (props) => {
   const classes = useStyles();
   const { images, setImages } = props;
-  console.log(images);
+
   const addImage = (event) => {
     const input = event.currentTarget;
     const newImages = [...input.files].map((file) => ({
@@ -102,7 +102,7 @@ const ImageInput = (props) => {
         </IconButton>
       </label>
       <Grid container className={classes.preview}>
-        {images.map((image, index) => (
+        {images.map((image) => (
           <Box key={image.id} className={classes.imageWrap}>
             <img
               className={classes.image}
