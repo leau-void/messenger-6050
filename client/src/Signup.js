@@ -16,7 +16,7 @@ import {
 } from "./components/AuthenticationPage";
 import { register } from "./store/utils/thunkCreators";
 
-const Login = (props) => {
+const Signup = (props) => {
   const history = useHistory();
   const { user, register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
@@ -116,4 +116,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
