@@ -7,10 +7,10 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   input: {
-    padding: "5px",
+    padding: theme.spacing(0.5),
   },
   label: {
-    padding: "5px",
+    padding: theme.spacing(0.5),
     fontSize: "14px"
   }
 }));

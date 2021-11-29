@@ -11,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
   main: {
     background: theme.palette.primary.main,
     color: "white",
-    margin: "2rem 1rem",
+    margin: theme.spacing(4, 2),
     "&:hover": {
       color: theme.palette.primary.main,
     },
 
     "@media (max-height: 600px)": {
-      margin: "0.5rem"
+      margin: theme.spacing(1)
     },
   },
   secondary: {

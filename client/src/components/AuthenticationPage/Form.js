@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     flexDirection: "column",
-    gap: "1rem",
+    gap: theme.spacing(2),
     "& h1": {
       fontSize: "26px",
       fontWeight: "bold",
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       alignSelf: "left"
     },
     "@media (max-height: 600px)": {
-      gap: "0.5rem"
+      gap: theme.spacing(1)
     },
   }
 }));

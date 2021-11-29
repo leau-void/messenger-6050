@@ -7,22 +7,22 @@ const useStyles = makeStyles((theme) => ({
     width: "fit-content",
     alignSelf: "end",
     justifyContent: "center",
-    padding: "2rem 3rem",
+    padding: theme.spacing(4, 6),
     fontSize: "14px",
     alignItems: "center",
-    gap: "3rem",
+    gap: theme.spacing(6),
     color: theme.palette.secondary.main,
     marginBottom: "auto",
     textAlign: "center",
 
     "@media (max-width: 768px)": {
-      padding: "1.5rem 0.5rem",
+      padding: theme.spacing(3, 1),
       alignSelf: "center",
-      gap: "1rem"
+      gap: theme.spacing(2)
     },
 
     "@media (max-height: 520px)": {
-      paddingBottom: "0.5rem"
+      paddingBottom: theme.spacing(1)
     }
   }
 }));

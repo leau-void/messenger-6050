@@ -38,17 +38,16 @@ const useStyles = makeStyles((theme) => ({
     placeSelf: "end center",
     width: "66px",
     height: "67px",
-    paddingTop: "1rem"
+    paddingTop: theme.spacing(2)
   },
   text: {
     fontSize: "26px",
     textAlign: "center",
     width: "75%",
-    padding: "min(1rem, 15px)",
+    padding: theme.spacing(2),
     lineHeight: "40px",
 
     "@media (max-width: 475px)": {
-      padding: "1rem",
       fontSize: "20px"
     }
   }
