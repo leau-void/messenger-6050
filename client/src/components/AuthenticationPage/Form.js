@@ -22,10 +22,7 @@ const useStyles = makeStyles((theme) => ({
     "@media (max-height: 600px)": {
       gap: "0.5rem"
     },
-  },
-  button: {
-    fontFamily: "Montserrat, Open Sans, sans-serif",
-  },
+  }
 }));
 
 const Form = (props) => {

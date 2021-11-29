@@ -8,6 +8,7 @@ export const theme = createMuiTheme({
       textTransform: "none",
       letterSpacing: 0,
       fontWeight: "bold",
+      fontFamily: "Montserrat, Open Sans, sans-serif",
     }
   },
   overrides: {
@@ -19,6 +20,6 @@ export const theme = createMuiTheme({
   },
   palette: {
     primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" }
+    secondary: { main: "#B0B0B0" },
   }
 });

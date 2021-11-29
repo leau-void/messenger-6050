@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "26px",
     textAlign: "center",
     width: "75%",
-    padding: "2.5rem",
+    padding: "min(1rem, 15px)",
     lineHeight: "40px",
 
     "@media (max-width: 475px)": {

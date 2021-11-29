@@ -9,11 +9,11 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center",
   },
   main: {
-    background: "#3A8DFF",
+    background: theme.palette.primary.main,
     color: "white",
     margin: "2rem 1rem",
     "&:hover": {
-      color: "#3A8DFF"
+      color: theme.palette.primary.main,
     },
 
     "@media (max-height: 600px)": {
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   secondary: {
-    color: "#3A8DFF",
+    color: theme.palette.primary.main,
     boxShadow: "0px 2px 12px rgba(74, 106, 149, 0.2)"
   }
 }));

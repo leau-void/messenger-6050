@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     alignItems: "center",
     gap: "3rem",
-    color: "#B0B0B0",
+    color: theme.palette.secondary.main,
     marginBottom: "auto",
     textAlign: "center",
 
