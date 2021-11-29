@@ -14,8 +14,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     gap: theme.spacing(2),
     "& h1": {
-      fontSize: "26px",
-      fontWeight: "bold",
       width: "100%",
       alignSelf: "left"
     },

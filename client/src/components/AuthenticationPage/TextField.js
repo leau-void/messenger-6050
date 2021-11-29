@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
   },
   label: {
     padding: theme.spacing(0.5),
-    fontSize: "14px"
   }
 }));
 

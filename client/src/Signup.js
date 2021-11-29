@@ -48,7 +48,7 @@ const Signup = (props) => {
           <Button onClick={() => history.push("/login")}>Login</Button>
         </TopBar>
         <Form onSubmit={handleRegister}>
-            <Typography component="h1">Create an account.</Typography>
+            <Typography variant="h1" component="h1">Create an account.</Typography>
               <FormControl>
                 <TextField
                   aria-label="username"

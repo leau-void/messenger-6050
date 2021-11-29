@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "end",
     justifyContent: "center",
     padding: theme.spacing(4, 6),
-    fontSize: "14px",
     alignItems: "center",
     gap: theme.spacing(6),
     color: theme.palette.secondary.main,

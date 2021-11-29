@@ -39,7 +39,7 @@ const Login = (props) => {
             <Button onClick={() => history.push("/register")}>Register</Button>
           </TopBar>
           <Form onSubmit={handleLogin}>
-              <Typography component="h1">Welcome back!</Typography>
+              <Typography variant="h1" component="h1">Welcome back!</Typography>
                 <FormControl margin="normal" required>
                   <TextField
                     aria-label="username"

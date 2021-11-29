@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "160px",
     height: "56px",
-    fontSize: "16px",
     alignSelf: "center",
   },
   main: {

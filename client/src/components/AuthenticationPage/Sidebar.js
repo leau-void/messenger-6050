@@ -41,15 +41,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(2)
   },
   text: {
-    fontSize: "26px",
-    textAlign: "center",
     width: "75%",
-    padding: theme.spacing(2),
-    lineHeight: "40px",
-
-    "@media (max-width: 475px)": {
-      fontSize: "20px"
-    }
+    padding: theme.spacing(2)
   }
 }));
 
@@ -59,7 +52,7 @@ const Sidebar = (props) => {
     <Box className={classes.root}>
       <Box className={classes.content}>
         <AuthpageBubble className={classes.bubble} />
-        <Typography className={classes.text}>Converse with anyone with any language</Typography>
+        <Typography variant="h2" className={classes.text}>Converse with anyone with any language</Typography>
       </Box>
     </Box>
   )
