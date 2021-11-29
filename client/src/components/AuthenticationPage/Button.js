@@ -14,7 +14,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "2rem 1rem",
     "&:hover": {
       color: "#3A8DFF"
-    }
+    },
+
+    "@media (max-height: 600px)": {
+      margin: "0.5rem"
+    },
   },
   secondary: {
     color: "#3A8DFF",

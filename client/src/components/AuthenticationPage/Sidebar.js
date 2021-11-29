@@ -38,10 +38,7 @@ const useStyles = makeStyles((theme) => ({
     placeSelf: "end center",
     width: "66px",
     height: "67px",
-
-    "@media (max-width: 475px)": {
-      paddingTop: "1rem"
-    }
+    paddingTop: "1rem"
   },
   text: {
     fontSize: "26px",

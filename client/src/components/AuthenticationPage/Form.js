@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "60%",
+    width: "max(60%, 240px)",
     marginBottom: "auto",
     "@media (max-width: 475px)": {
       width: "80%"
@@ -18,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: "bold",
       width: "100%",
       alignSelf: "left"
-    }
+    },
+    "@media (max-height: 600px)": {
+      gap: "0.5rem"
+    },
   },
   button: {
     fontFamily: "Montserrat, Open Sans, sans-serif",

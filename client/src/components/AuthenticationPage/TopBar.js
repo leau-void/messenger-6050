@@ -16,15 +16,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
 
     "@media (max-width: 768px)": {
-      flexDirection: "column",
-      gap: "1.5rem"
+      padding: "1.5rem 0.5rem",
+      alignSelf: "center",
+      gap: "1rem"
     },
 
-    "@media (max-width: 475px)": {
-      flexDirection: "row",
-      gap: "1rem",
-      padding: "2rem 1.5rem",
-      alignSelf: "center"
+    "@media (max-height: 520px)": {
+      paddingBottom: "0.5rem"
     }
   }
 }));
