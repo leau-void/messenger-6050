@@ -6,7 +6,7 @@ import { authpageSidebarImage, AuthpageBubble } from "../../assets"
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
-    width: "40vw",
+    width: "min(35vw, 400px)",
     padding: 0,
     background: `top / cover no-repeat url(${authpageSidebarImage})`,
     position: "relative",
