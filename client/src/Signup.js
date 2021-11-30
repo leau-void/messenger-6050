@@ -2,17 +2,21 @@ import React, { useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  Grid,
-  Box,
   Typography,
-  Button,
   FormControl,
-  TextField,
   FormHelperText,
 } from "@material-ui/core";
+import { 
+  AuthenticationPage,
+  Button,
+  Form,
+  TopBar,
+  TextField,
+  Content
+} from "./components/AuthenticationPage";
 import { register } from "./store/utils/thunkCreators";
 
-const Login = (props) => {
+const Signup = (props) => {
   const history = useHistory();
   const { user, register } = props;
   const [formErrorMessage, setFormErrorMessage] = useState({});
@@ -37,15 +41,14 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
-      <Box>
-        <Grid container item>
+    <AuthenticationPage>
+      <Content>
+        <TopBar container item>
           <Typography>Need to log in?</Typography>
           <Button onClick={() => history.push("/login")}>Login</Button>
-        </Grid>
-        <form onSubmit={handleRegister}>
-          <Grid>
-            <Grid>
+        </TopBar>
+        <Form onSubmit={handleRegister}>
+            <Typography variant="h1" component="h1">Create an account.</Typography>
               <FormControl>
                 <TextField
                   aria-label="username"
@@ -55,8 +58,6 @@ const Login = (props) => {
                   required
                 />
               </FormControl>
-            </Grid>
-            <Grid>
               <FormControl>
                 <TextField
                   label="E-mail address"
@@ -66,8 +67,6 @@ const Login = (props) => {
                   required
                 />
               </FormControl>
-            </Grid>
-            <Grid>
               <FormControl error={!!formErrorMessage.confirmPassword}>
                 <TextField
                   aria-label="password"
@@ -81,8 +80,6 @@ const Login = (props) => {
                   {formErrorMessage.confirmPassword}
                 </FormHelperText>
               </FormControl>
-            </Grid>
-            <Grid>
               <FormControl error={!!formErrorMessage.confirmPassword}>
                 <TextField
                   label="Confirm Password"
@@ -96,14 +93,12 @@ const Login = (props) => {
                   {formErrorMessage.confirmPassword}
                 </FormHelperText>
               </FormControl>
-            </Grid>
-            <Button type="submit" variant="contained" size="large">
+            <Button main type="submit" variant="contained" size="large">
               Create
             </Button>
-          </Grid>
-        </form>
-      </Box>
-    </Grid>
+        </Form>
+      </Content>
+    </AuthenticationPage>
   );
 };
 
@@ -121,4 +116,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

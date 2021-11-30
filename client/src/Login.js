@@ -2,13 +2,17 @@ import React from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import {
-  Grid,
-  Box,
   Typography,
-  Button,
   FormControl,
-  TextField,
 } from "@material-ui/core";
+import { 
+  AuthenticationPage,
+  Button,
+  Form,
+  TopBar,
+  TextField,
+  Content
+} from "./components/AuthenticationPage";
 import { login } from "./store/utils/thunkCreators";
 
 const Login = (props) => {
@@ -28,41 +32,36 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
-      <Box>
-        <Grid container item>
-          <Typography>Need to register?</Typography>
-          <Button onClick={() => history.push("/register")}>Register</Button>
-        </Grid>
-        <form onSubmit={handleLogin}>
-          <Grid>
-            <Grid>
+    <AuthenticationPage>
+      <Content>
+          <TopBar item>
+            <Typography>Need to register?</Typography>
+            <Button onClick={() => history.push("/register")}>Register</Button>
+          </TopBar>
+          <Form onSubmit={handleLogin}>
+              <Typography variant="h1" component="h1">Welcome back!</Typography>
+                <FormControl margin="normal" required>
+                  <TextField
+                    aria-label="username"
+                    label="Username"
+                    name="username"
+                    type="text"
+                  />
+                </FormControl>
               <FormControl margin="normal" required>
                 <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
+                  label="Password"
+                  aria-label="password"
+                  type="password"
+                  name="password"
                 />
               </FormControl>
-            </Grid>
-            <FormControl margin="normal" required>
-              <TextField
-                label="password"
-                aria-label="password"
-                type="password"
-                name="password"
-              />
-            </FormControl>
-            <Grid>
-              <Button type="submit" variant="contained" size="large">
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form>
-      </Box>
-    </Grid>
+                <Button main type="submit" variant="contained" size="large">
+                  Login
+                </Button>
+          </Form>
+      </Content>
+    </AuthenticationPage>
   );
 };
 
