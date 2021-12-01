@@ -7,7 +7,22 @@ export const theme = createMuiTheme({
     button: {
       textTransform: "none",
       letterSpacing: 0,
+      fontWeight: "bold",
+      fontFamily: "Montserrat, Open Sans, sans-serif",
+      fontSize: "16px !important"
+    },
+    h1: {
+      fontSize: 26,
       fontWeight: "bold"
+    },
+    h2: {
+      fontSize: "26px",
+      textAlign: "center",
+      lineHeight: "40px",
+
+      "@media (max-width: 475px)": {
+        fontSize: "20px"
+      }
     }
   },
   overrides: {
@@ -19,6 +34,6 @@ export const theme = createMuiTheme({
   },
   palette: {
     primary: { main: "#3A8DFF" },
-    secondary: { main: "#B0B0B0" }
+    secondary: { main: "#B0B0B0" },
   }
 });
