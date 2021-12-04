@@ -30,12 +30,19 @@ const Input = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // reset inputs at first to avoid sending multiple messages during async processing of images
+    let curText = text;
+    let curImages = images;
+    setText("");
+    setImages([]);
+
     let attachments;
-    if (images.length) {
+    if (curImages.length) {
       const formData = new FormData();
-      const url = "";
+      const url = "https://api.cloudinary.com/v1_1/leau/image/upload";
       attachments = await Promise.all(
-        images.map(async (image) => {
+        curImages.map(async (image) => {
           formData.append("file", image.file);
           formData.append("upload_preset", "ek6souzh");
 
@@ -43,23 +50,21 @@ const Input = (props) => {
             method: "POST",
             body: formData,
           });
-          const text = await response.json();
-          return text.secure_url;
+          const data = await response.json();
+          return data.secure_url;
         })
       );
     }
 
     // add sender user info if posting to a brand new convo, so that the other user will have access to username, profile pic, etc.
     const reqBody = {
-      text: event.target.text.value,
+      text: curText,
       recipientId: otherUser.id,
       conversationId,
       sender: conversationId ? null : user,
       attachments,
     };
     await postMessage(reqBody);
-    setText("");
-    setImages([]);
   };
 
   return (
