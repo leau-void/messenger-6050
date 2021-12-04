@@ -98,7 +98,7 @@ const ImageInput = (props) => {
       />
       <label htmlFor="image-input">
         <IconButton component="span" className={classes.button}>
-          <AddPhotoIcon fontSize="20px" />
+          <AddPhotoIcon />
         </IconButton>
       </label>
       <Grid container className={classes.preview}>
