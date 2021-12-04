@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "flex-end",
     marginBottom: theme.spacing(2),
     borderRadius: "10px 10px 0 10px",
+    justifyContent: "flex-end"
   },
   date: {
     fontSize: 11,
@@ -28,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
   bubble: {
     background: "#F4F6FA",
     flexShrink: 1,
-    maxWidth: "80%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

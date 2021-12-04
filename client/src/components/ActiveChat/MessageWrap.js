@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageDisplay from "./ImageDisplay";
 
@@ -6,9 +6,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-end",
+    alignItems: "inherit",
     width: "100%",
     borderRadius: "inherit",
+    justifyContent: "inherit"
   },
 }));
 
