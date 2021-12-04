@@ -1,11 +1,31 @@
 import { ImageList, ImageListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: "fit-content",
+    maxWidth: 800,
+    justifyContent: "flex-end",
+    borderRadius: "inherit",
+    gap: theme.spacing(1),
+    flexWrap: "wrap",
+    paddingTop: theme.spacing(1),
   },
-  image: {},
+  imageItem: {
+    borderRadius: "inherit",
+    height: "auto !important",
+    flex: "0 1 200px",
+    minWidth: 100,
+    maxHeight: 200,
+
+    "& > .MuiImageListItem-item": {
+      borderRadius: "inherit",
+      width: "100%",
+    },
+  },
+  image: {
+    borderRadius: "inherit",
+    width: "100%",
+  },
 }));
 
 const ImageDisplay = (props) => {
@@ -13,13 +33,19 @@ const ImageDisplay = (props) => {
   const { images } = props;
 
   return (
-    <ImageList className={classes.root}>
-      {images.map((image, index) => (
-        <ImageListItem className={classes.image} key={index}>
-          <img src={image} />
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <>
+      <ImageList col={3} className={classes.root}>
+        {images.map((image, index) => (
+          <ImageListItem className={classes.imageItem} key={index}>
+            <img
+              className={classes.image}
+              src={image}
+              alt={`Attachment #${index}`}
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </>
   );
 };
 
