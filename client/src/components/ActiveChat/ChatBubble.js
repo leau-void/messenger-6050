@@ -11,11 +11,52 @@ const useStyles = makeStyles((theme) => ({
   message: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
+    alignItems: "flex-end",
     marginBottom: theme.spacing(2),
-    borderRadius: "0 10px 10px 10px",
+    borderRadius: "10px 10px 0 10px",
+    justifyContent: "flex-end",
     width: "100%",
-    justifyContent: "flex-start",
+
+    ".other-user &": {
+      alignItems: "flex-start",
+      borderRadius: "0 10px 10px 10px",
+      justifyContent: "flex-start",
+    }
+  },
+  date: {
+    fontSize: 11,
+    color: "#BECCE2",
+    fontWeight: "bold",
+    marginBottom: theme.spacing(0.5),
+  },
+  text: {
+    fontSize: 14,
+    color: "#91A3C0",
+    letterSpacing: -0.2,
+    padding: theme.spacing(1),
+    fontWeight: "bold",
+    alignSelf: "flex-end",
+
+    ".other-user &": {
+      color: "#FFFFFF",
+    }
+  },
+  bubble: {
+    background: "#F4F6FA",
+    flexShrink: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    borderRadius: "inherit",
+
+    ".other-user &": {
+      background: "linear-gradient(225deg, #6CC1FF 0%, #3A8DFF 100%)",
+    }
+  },
+  singleImage: {
+    width: "100%",
+    maxWidth: "200px",
+    borderRadius: "10px 10px 0 0",
   },
   avatar: {
     height: 30,
@@ -23,45 +64,21 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1.5),
     marginTop: theme.spacing(0.75),
   },
-  usernameDate: {
-    fontSize: 11,
-    color: "#BECCE2",
-    fontWeight: "bold",
-    marginBottom: theme.spacing(0.5),
-  },
-  bubble: {
-    backgroundImage: "linear-gradient(225deg, #6CC1FF 0%, #3A8DFF 100%)",
-    borderRadius: "inherit",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  text: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#FFFFFF",
-    letterSpacing: -0.2,
-    padding: theme.spacing(1),
-  },
-  singleImage: {
-    width: "100%",
-    maxWidth: "200px",
-    borderRadius: "0 10px 0 0",
-  },
 }));
 
-const OtherUserBubble = (props) => {
+const ChatBubble = (props) => {
   const classes = useStyles();
   const { text, time, otherUser, images } = props;
+  
   return (
-    <Box className={classes.root}>
-      <Avatar
+    <Box className={classes.root + (otherUser ? " other-user" : "")}>
+      {otherUser && <Avatar
         alt={otherUser.username}
         src={otherUser.photoUrl}
-        className={classes.avatar} />
+        className={classes.avatar} />}
       <Box className={classes.message}>
-        <Typography className={classes.usernameDate}>
-          {otherUser.username} {time}
+        <Typography className={classes.date}>
+          {otherUser && otherUser.username} {time}
         </Typography>
         <MessageWrap images={images}>
           {text && (
@@ -82,4 +99,4 @@ const OtherUserBubble = (props) => {
   );
 };
 
-export default OtherUserBubble;
+export default ChatBubble;
