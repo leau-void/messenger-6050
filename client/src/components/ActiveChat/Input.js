@@ -41,7 +41,7 @@ const Input = (props) => {
     if (curImages.length) {
       const formData = new FormData();
       const url = "https://api.cloudinary.com/v1_1/leau/image/upload";
-      attachments = await Promise.all(
+      attachments = (await Promise.all(
         curImages.map(async (image) => {
           formData.append("file", image.file);
           formData.append("upload_preset", "ek6souzh");
@@ -50,10 +50,10 @@ const Input = (props) => {
             method: "POST",
             body: formData,
           });
-          const data = await response.json();
-          return data.secure_url;
+          const data = response.json();
+          return data;
         })
-      );
+      )).map((data) => data.secure_url)
     }
 
     // add sender user info if posting to a brand new convo, so that the other user will have access to username, profile pic, etc.
