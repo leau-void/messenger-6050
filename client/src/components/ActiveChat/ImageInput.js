@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "grid",
     grid: "1fr / 50px 1fr",
-    gap: "10px",
-    margin: "1rem 0",
+    gap: theme.spacing(2),
+    margin: theme.spacing(2),
     alignItems: "flex-end",
   },
   input: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     left: "-100vw",
   },
   button: {
-    margin: "0.5rem",
+    margin: theme.spacing(1),
     marginBottom: 0,
 
     "&:hover": {
@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     overflowX: "scroll",
     background: "#F4F6FA",
-    padding: "1rem",
-    margin: "0 0.5rem",
-    gap: "1rem",
+    padding: theme.spacing(2),
+    margin: theme.spacing(0, 1),
+    gap: theme.spacing(2),
     borderRadius: 8,
 
     "&:empty": {

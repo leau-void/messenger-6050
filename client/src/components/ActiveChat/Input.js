@@ -5,16 +5,16 @@ import { connect } from "react-redux";
 import { postMessage } from "../../store/utils/thunkCreators";
 import { ImageInput } from ".";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     justifySelf: "flex-end",
-    marginTop: 15,
+    marginTop: theme.spacing(2),
   },
   input: {
     height: 70,
     backgroundColor: "#F4F6FA",
     borderRadius: 8,
-    marginBottom: 20,
+    marginBottom: theme.spacing(2.5),
   },
 }));
 
