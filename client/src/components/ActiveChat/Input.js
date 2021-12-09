@@ -45,7 +45,7 @@ const Input = (props) => {
         curImages.map(async (image) => {
           const formData = new FormData();
           formData.append("file", image.file);
-          formData.append("upload_preset", "ek6souzh");
+          formData.append("upload_preset", process.env.CLOUDINARY_KEY);
 
           const response = axios.post(url, formData,
             { 
