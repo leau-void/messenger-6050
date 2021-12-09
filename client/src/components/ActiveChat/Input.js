@@ -58,7 +58,6 @@ const Input = (props) => {
           return response;
         })
       )).map((response) => {
-        console.log(response.data)
         return response.data.secure_url
       })
     }
